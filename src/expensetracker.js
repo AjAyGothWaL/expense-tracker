@@ -7,7 +7,7 @@ const Expensetracker = () => {
   const [inc, setInc] = useState([]);
   const [value, setValue] = useState("");
   const [transaction, setTransaction] = useState("");
-  const[intial,setinitial]=useState("");
+  const [intial, setinitial] = useState("");
 
   function handleChange(e) {
     setValue(e.target.value);
@@ -19,12 +19,12 @@ const Expensetracker = () => {
 
   function handleExpenses() {
     if (value > 0) {
-    const expense = parseInt(value);
-    setBalance(balance - expense);
-    setExp([...exp, { amount: expense, description: transaction }]);
-    setValue("");
-    setTransaction("");
-}
+      const expense = parseInt(value);
+      setBalance(balance - expense);
+      setExp([...exp, { amount: expense, description: transaction }]);
+      setValue("");
+      setTransaction("");
+    }
   }
 
   function handleIncome() {
@@ -36,53 +36,78 @@ const Expensetracker = () => {
   }
 
   function removeexpenses(index){
-      const newExp=exp.filter((_,i)=>i!==index);
-      setExp(newExp);
-      setBalance(balance+exp[index].amount);
+    const newExp = exp.filter((_, i) => i !== index);
+    setExp(newExp);
+    setBalance(balance + exp[index].amount);
   }
-  
+
   function removeincome(index) {
     const newInc = inc.filter((_, i) => i !== index);
     setInc(newInc); 
-    setBalance(balance-inc[index].amount);
-}
-function handleintialbalance(e){
-   setinitial(e.target.value);
-}
-function handleinitial(){
-    const setbalance=parseInt(intial);
+    setBalance(balance - inc[index].amount);
+  }
+
+  function handleintialbalance(e){
+    setinitial(e.target.value);
+  }
+
+  function handleinitial(){
+    const setbalance = parseInt(intial);
     setBalance(setbalance);
     setinitial("");
-}
+  }
+
   return (
     <div className="container">
       <h1>Balance: {balance}</h1>
       <div className="input-container">
-    <input placeholder="Set the Balance accordingly" value={intial} onChange={handleintialbalance} >
-    </input>
-    <button className="set-balance-button" onClick={handleinitial}>Set Balance</button> 
+       
+        <input 
+          placeholder="Set the Balance accordingly" 
+          value={intial} 
+          onChange={handleintialbalance} 
+        />
+        <button 
+          className="set-balance-button" 
+          onClick={handleinitial}
+          disabled={balance !== 0} 
+        >
+          Set Balance
+        </button> 
 
-
-
-
+       
         <input 
           type="text" 
           onChange={handleChange} 
           value={value} 
           placeholder="Enter amount" 
+          disabled={balance === 0} 
         />
         <input 
           type="text" 
           onChange={handleTransactionChange} 
           value={transaction} 
           placeholder="Description (What you bought or added)" 
+          disabled={balance === 0} 
         />
       </div>
+
       <div className="button-container">
-        <button onClick={handleExpenses}>Add Expense</button>
-        <button onClick={handleIncome}>Add Income</button>
+        <button 
+          onClick={handleExpenses} 
+          disabled={balance === 0} 
+        >
+          Add Expense
+        </button>
+        <button 
+          onClick={handleIncome} 
+          disabled={balance === 0} 
+        >
+          Add Income
+        </button>
       </div>
 
+      
       <div className="transaction-lists">
         <div className="expenses">
           <h2>Expenses</h2>
