@@ -1,6 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -9,7 +7,6 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-
 
 .container {
   width: 80%;
@@ -33,7 +30,6 @@ h1 {
   color: #333;
   margin-bottom: 30px;
 }
-
 
 .input-container {
   display: flex;
@@ -60,7 +56,6 @@ h1 {
   background-color: #fff;
 }
 
-
 .set-balance-container {
   display: flex;
   gap: 10px;
@@ -71,7 +66,6 @@ h1 {
 .set-balance-container input {
   width: 60%; 
 }
-
 
 .set-balance-button {
   padding: 12px 25px;
@@ -85,13 +79,11 @@ h1 {
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 .set-balance-button:focus {
   outline: none;
   background-color: #ffb3b3; 
   box-shadow: 0 0 8px rgba(255, 105, 97, 0.8); 
 }
-
 
 .set-balance-button:hover {
   background-color: #ffb447; 
@@ -99,12 +91,10 @@ h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-
 .set-balance-button:active {
   transform: translateY(1px); 
   box-shadow: none;
 }
-
 
 .button-container {
   display: flex;
@@ -134,7 +124,6 @@ h1 {
   transform: translateY(1px);
 }
 
-
 .transaction-lists {
   display: flex;
   justify-content: space-between;
@@ -158,6 +147,9 @@ li {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 li:hover {
@@ -177,7 +169,6 @@ li:hover {
   margin-bottom: 10px;
 }
 
-
 .income-item button, .expense-item button {
   padding: 5px 10px;
   font-size: 14px;
@@ -193,14 +184,12 @@ li:hover {
   background-color: #ff4d39;
 }
 
-
 @media (max-width: 768px) {
   .container {
     width: 95%;
     padding: 20px;
   }
 
-  
   .input-container {
     flex-direction: column;
     gap: 10px;
@@ -210,12 +199,10 @@ li:hover {
     width: 100%;
   }
 
-  
   .button-container {
     flex-direction: column;
   }
 
-  
   .transaction-lists {
     flex-direction: column;
     align-items: center;
@@ -225,3 +212,4 @@ li:hover {
     width: 100%;
   }
 }
+
